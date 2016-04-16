@@ -43,7 +43,7 @@ public class TweenKeypresses : MonoBehaviour {
         }
 	}
 
-    public float ScaleFactor(char key) {
+    public virtual float ScaleFactor(char key) {
         TweenState state = states[key];
         float deltaTime = Time.time - state.changeTime;
         float animationLength = 0.5f;
