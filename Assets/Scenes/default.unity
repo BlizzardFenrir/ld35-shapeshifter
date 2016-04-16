@@ -189,7 +189,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transformMeshes:
-  - {fileID: 100000, guid: 654cab8e1557fb647a970bc787c7e046, type: 3}
+  - Key: 97
+    Value: {fileID: 100000, guid: 654cab8e1557fb647a970bc787c7e046, type: 3}
+  - Key: 98
+    Value: {fileID: 100000, guid: 38f8785f9efc12d4bb5a904bf67661c9, type: 3}
+--- !u!114 &290094594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 290094588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f39138845c144ad46b4d0788d9e6a52b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1025225106
 Prefab:
   m_ObjectHideFlags: 0

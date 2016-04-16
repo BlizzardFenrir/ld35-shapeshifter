@@ -2,12 +2,18 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class VertexTransform : MonoBehaviour {
-  
-  public List<GameObject> transformMeshes;
-  private List< List<Vector3> > transformOffsets;
-  float[] buttonsPressed;
+[System.Serializable]
+public class TransformMesh {
+   public char Key;
+   public GameObject Value;
+}
 
+public class VertexTransform : MonoBehaviour {
+  public List<TransformMesh> transformMeshes;
+  private Dictionary<char, List<Vector3> > transformOffsets;
+
+  [HideInInspector][System.NonSerialized]
+  private TweenKeypresses keypresses;
   [HideInInspector][System.NonSerialized]
   private Mesh mesh;
   [HideInInspector][System.NonSerialized]
@@ -15,14 +21,14 @@ public class VertexTransform : MonoBehaviour {
 
   // Use this for initialization
   void Start () {
-    transformOffsets = new List< List<Vector3> >();
-    buttonsPressed = new float[26];
+    transformOffsets = new Dictionary<char, List<Vector3> >();
+    keypresses = GetComponent<TweenKeypresses>();
 
     mesh = GetComponent<MeshFilter>().mesh;
     initialVertices = mesh.vertices;
 
-    foreach (GameObject tr in transformMeshes) {
-      Mesh trMesh = tr.GetComponent<MeshFilter>().sharedMesh;
+    foreach (TransformMesh tfm in transformMeshes) {
+      Mesh trMesh = tfm.Value.GetComponent<MeshFilter>().sharedMesh;
       Vector3[] transformVertices = trMesh.vertices;
 
       List<Vector3> offsets = new List<Vector3>();
@@ -30,25 +36,18 @@ public class VertexTransform : MonoBehaviour {
       for (int i = 0; i < initialVertices.Length; i++) {
         offsets.Add( transformVertices[i] - initialVertices[i] );
       }
-      transformOffsets.Add( offsets );
+      transformOffsets[tfm.Key] = offsets;
     }
   }
   
   // Update is called once per frame
   void Update () {
-    if (Input.GetKey(KeyCode.Q)) {
-      buttonsPressed[0] = Mathf.Clamp(buttonsPressed[0] + 0.1f, 0.0f, 1.0f);
-    } else {
-      buttonsPressed[0] = Mathf.Clamp(buttonsPressed[0] - 0.1f, 0.0f, 1.0f);
-    }
-
-
     Vector3[] vertices = new Vector3[initialVertices.Length];
     System.Array.Copy(initialVertices, vertices, initialVertices.Length);
 
-    for (int i = 0; i < transformOffsets.Count; i++) {
+    foreach (KeyValuePair<char, List<Vector3> > kvp in transformOffsets) {
       for (int j = 0; j < vertices.Length; j++) {
-        vertices[j] += transformOffsets[i][j] * buttonsPressed[i];
+        vertices[j] += kvp.Value[j] * keypresses.keyStates[kvp.Key];
       }
     }
 

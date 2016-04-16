@@ -24,9 +24,6 @@ public class TweenKeypresses : MonoBehaviour {
             } else {
                 keyStates[key] = Mathf.Clamp(keyStates[key] - 0.05f, 0.0f, 1.0f);
             }
-
-            Debug.Log(key);
-            Debug.Log(keyStates[key]);
         }
 	}
 }
