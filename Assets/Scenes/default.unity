@@ -251,6 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: -3
   camera: {fileID: 1932316879}
+  wallShape: {fileID: 760307510}
 --- !u!1 &103399477
 GameObject:
   m_ObjectHideFlags: 0

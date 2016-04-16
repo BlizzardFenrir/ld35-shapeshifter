@@ -19,6 +19,10 @@ public class RandomKeypresses : TweenKeypresses {
         states[tm.Key] = false;
       }
 
+      Randomize();
+    }
+
+    public void Randomize() {
       System.Random rand = new System.Random();
       List<char> pressedKeys = keys.OrderBy(c => rand.Next()).Take(difficulty).ToList();
       foreach (char k in pressedKeys) {
@@ -27,7 +31,6 @@ public class RandomKeypresses : TweenKeypresses {
     }
     
     void Update () {
-
     }
 
     public override float ScaleFactor(char key) {
