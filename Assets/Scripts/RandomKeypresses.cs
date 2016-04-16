@@ -42,6 +42,18 @@ public class RandomKeypresses : TweenKeypresses {
     void Update () {
     }
 
+    public List<char> PressedKeys() {
+      List<char> result = new List<char>();
+
+      foreach (var state in states) {
+        if (state.Value) {
+          result.Add(state.Key);
+        }
+      }
+
+      return result;
+    }
+
     public override float ScaleFactor(char key) {
       return states[key] ? 1.0f : 0.0f;
     }
