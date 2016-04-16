@@ -172,6 +172,7 @@ GameObject:
   - 64: {fileID: 70441897}
   - 23: {fileID: 70441896}
   - 114: {fileID: 70441900}
+  - 114: {fileID: 70441901}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -252,6 +253,22 @@ MonoBehaviour:
   speed: -3
   camera: {fileID: 1932316879}
   wallShape: {fileID: 760307510}
+--- !u!114 &70441901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 70441895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4efdc9f309acedf4da797a4a70d2be52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentKeypresses: {fileID: 1977813268}
+  desiredKeypresses: {fileID: 760307512}
+  lights:
+  - {fileID: 585131468}
+  - {fileID: 1817316536}
 --- !u!1 &103399477
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,6 +637,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 585131466}
   - 114: {fileID: 585131467}
+  - 114: {fileID: 585131468}
   m_Layer: 0
   m_Name: WarningLight
   m_TagString: Untagged
@@ -654,6 +672,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35632995864bfd94387812ce5694dd83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &585131468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 585131465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c281152a436771745adb29902dcfdaa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  lights:
+  - {fileID: 753063141}
+  - {fileID: 353353616}
+  - {fileID: 308806324}
 --- !u!1 &662047651
 GameObject:
   m_ObjectHideFlags: 0
@@ -1741,8 +1775,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 1817316534}
   - 114: {fileID: 1817316535}
+  - 114: {fileID: 1817316536}
   m_Layer: 0
-  m_Name: WarningLight (1)
+  m_Name: WarningLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1775,6 +1810,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35632995864bfd94387812ce5694dd83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1817316536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1817316533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c281152a436771745adb29902dcfdaa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  lights:
+  - {fileID: 665089708}
+  - {fileID: 2111669355}
+  - {fileID: 222299503}
 --- !u!1 &1845721308
 GameObject:
   m_ObjectHideFlags: 0
@@ -1971,6 +2022,12 @@ MonoBehaviour:
 GameObject:
   m_PrefabParentObject: {fileID: 175204, guid: 799f893948775c64c8616546fa09f919, type: 2}
   m_PrefabInternal: {fileID: 1511306173}
+--- !u!114 &1977813268 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11472208, guid: 799f893948775c64c8616546fa09f919,
+    type: 2}
+  m_PrefabInternal: {fileID: 1511306173}
+  m_Script: {fileID: 11500000, guid: f39138845c144ad46b4d0788d9e6a52b, type: 3}
 --- !u!1 &2111669353
 GameObject:
   m_ObjectHideFlags: 0

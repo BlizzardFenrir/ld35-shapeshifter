@@ -43,6 +43,18 @@ public class TweenKeypresses : MonoBehaviour {
         }
 	}
 
+    public List<char> PressedKeys() {
+      List<char> result = new List<char>();
+
+      foreach (var state in states) {
+        if (state.Value.pressed) {
+          result.Add(state.Key);
+        }
+      }
+
+      return result;
+    }
+
     public virtual float ScaleFactor(char key) {
         TweenState state = states[key];
         float deltaTime = Time.time - state.changeTime;
