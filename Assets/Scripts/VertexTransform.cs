@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 [System.Serializable]
 public class TransformMesh {
+   public string Name;
+   [HideInInspector]
    public char Key;
    public GameObject Value;
 }
@@ -53,6 +55,14 @@ public class VertexTransform : MonoBehaviour {
 
     mesh.vertices = vertices;
     mesh.RecalculateBounds();
+  }
+
+  void OnValidate() {
+    foreach (TransformMesh tfm in transformMeshes) {
+      if (tfm.Name.Length > 0) {
+        tfm.Key = tfm.Name[0];
+      }
+    }
   }
 
 }
