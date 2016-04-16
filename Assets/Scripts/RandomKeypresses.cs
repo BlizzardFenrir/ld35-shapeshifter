@@ -9,7 +9,7 @@ public class RandomKeypresses : TweenKeypresses {
     public int difficulty;
     private Dictionary<char, bool> states;
 
-    void Start () {
+    void Awake () {
       states = new Dictionary<char, bool>();
 
       VertexTransform vt = GetComponent<VertexTransform>();
@@ -18,7 +18,9 @@ public class RandomKeypresses : TweenKeypresses {
         keys.Add(tm.Key);
         states[tm.Key] = false;
       }
+    }
 
+    void Start() {
       Randomize();
     }
 
