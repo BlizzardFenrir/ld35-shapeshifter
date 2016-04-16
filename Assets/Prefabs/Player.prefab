@@ -125,6 +125,12 @@ MonoBehaviour:
   - Name: p
     Key: 112
     Value: {fileID: 100000, guid: cad0953a7bd1e104c9eeea73520fb993, type: 3}
+  - Name: a
+    Key: 97
+    Value: {fileID: 100000, guid: 5df3da75c61961b4fad16b2c42dddc9d, type: 3}
+  - Name: s
+    Key: 115
+    Value: {fileID: 100000, guid: c50caecd8eeaf8e4292cfd5bf5692a80, type: 3}
 --- !u!114 &11472208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,7 +151,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: transformMeshes.Array.size
-      value: 26
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: transformMeshes.Array.data[8].Key
@@ -283,6 +289,14 @@ Prefab:
       propertyPath: transformMeshes.Array.data[15].Key
       value: 104
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: transformMeshes.Array.data[10].Value
+      value: 
+      objectReference: {fileID: 100000, guid: 5df3da75c61961b4fad16b2c42dddc9d, type: 3}
+    - target: {fileID: 0}
+      propertyPath: transformMeshes.Array.data[11].Value
+      value: 
+      objectReference: {fileID: 100000, guid: c50caecd8eeaf8e4292cfd5bf5692a80, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 175204}
