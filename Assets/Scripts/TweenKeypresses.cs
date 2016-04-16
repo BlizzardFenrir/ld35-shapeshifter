@@ -3,27 +3,61 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class TweenKeypresses : MonoBehaviour {
-    public Dictionary<char, float> keyStates;
+    class TweenState {
+        public bool pressed = false;
+        public float changeTime = 0.0f;
+        public float valueWhenChanged = 0.0f;
+    }
 
-    char[] keys = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+    private Dictionary<char, TweenState> states;
+
+    public static char[] keys = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
 
 	// Use this for initialization
 	void Start () {
-        keyStates = new Dictionary<char, float>();
+        states = new Dictionary<char, TweenState>();
 
         foreach (char key in keys) {
-            keyStates[key] = 0.0f;
+            states[key] = new TweenState();
         }
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	    foreach (char key in keys) {
+            var state = states[key];
+
             if (Input.GetKey(new string(key, 1))) {
-                keyStates[key] = Mathf.Clamp(keyStates[key] + 0.05f, 0.0f, 1.0f);
+                if (!state.pressed) {
+                    state.valueWhenChanged = ScaleFactor(key);
+                    state.pressed = true;
+                    state.changeTime = Time.time;
+                }
             } else {
-                keyStates[key] = Mathf.Clamp(keyStates[key] - 0.05f, 0.0f, 1.0f);
+                if (state.pressed) {
+                    state.valueWhenChanged = ScaleFactor(key);
+                    state.pressed = false;
+                    state.changeTime = Time.time;
+                }
             }
         }
 	}
+
+    public float ScaleFactor(char key) {
+        TweenState state = states[key];
+        float deltaTime = Time.time - state.changeTime;
+        float animationLength = 0.5f;
+        float eased;
+
+        deltaTime = Mathf.Clamp(deltaTime, 0, animationLength);
+
+        if (state.pressed) {
+            eased = EasingFunctions.EaseOutElastic(deltaTime, 0, 1, animationLength);
+            return Mathf.Clamp(state.valueWhenChanged + eased, 0, 1);
+        } else {
+            eased = EasingFunctions.EaseOutElastic(deltaTime, 0, 1, animationLength);
+            return Mathf.Clamp(state.valueWhenChanged - eased, 0, 1);
+        }
+
+    }
 }

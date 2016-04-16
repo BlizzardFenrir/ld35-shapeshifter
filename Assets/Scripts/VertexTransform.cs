@@ -47,7 +47,7 @@ public class VertexTransform : MonoBehaviour {
 
     foreach (KeyValuePair<char, List<Vector3> > kvp in transformOffsets) {
       for (int j = 0; j < vertices.Length; j++) {
-        vertices[j] += kvp.Value[j] * keypresses.keyStates[kvp.Key];
+        vertices[j] += kvp.Value[j] * keypresses.ScaleFactor(kvp.Key);
       }
     }
 
