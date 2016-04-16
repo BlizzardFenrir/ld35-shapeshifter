@@ -25,6 +25,13 @@ public class RandomKeypresses : TweenKeypresses {
     }
 
     public void Randomize() {
+      // Reset
+      List<char> keys = new List<char>(states.Keys);
+      foreach (char key in keys) {
+        states[key] = false;
+      }
+
+      // Randomize
       System.Random rand = new System.Random();
       List<char> pressedKeys = keys.OrderBy(c => rand.Next()).Take(difficulty).ToList();
       foreach (char k in pressedKeys) {
@@ -37,5 +44,13 @@ public class RandomKeypresses : TweenKeypresses {
 
     public override float ScaleFactor(char key) {
       return states[key] ? 1.0f : 0.0f;
+    }
+
+    public string getShapeLetters() {
+      string result = "";
+      foreach (KeyValuePair<char, bool> kvp in states) {
+        if (kvp.Value) result += kvp.Key;
+      }
+      return result;
     }
 }
