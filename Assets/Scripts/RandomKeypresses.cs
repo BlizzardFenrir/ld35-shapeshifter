@@ -90,4 +90,12 @@ public class RandomKeypresses : TweenKeypresses {
       }
       return result;
     }
+
+    public void increaseDifficulty() {
+      difficulty = Mathf.Clamp(difficulty + 1, 0, 10);
+    }
+
+    public void lowerDifficulty() {
+      difficulty = Mathf.Clamp(difficulty - 1, 0, 10);
+    }
 }
