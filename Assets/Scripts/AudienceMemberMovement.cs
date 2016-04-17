@@ -20,7 +20,6 @@ public class AudienceMemberMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
     RandomizePosition();
-    Debug.Log(shiftedUp);
     transform.position = initialPosition;
 
     transform.position = new Vector3(
