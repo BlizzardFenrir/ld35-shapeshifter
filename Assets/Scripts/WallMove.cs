@@ -3,6 +3,7 @@ using System.Collections;
 
 public class WallMove : MonoBehaviour {
   public float speed;
+  public bool moving = false;
   public KeepLookingAt cameraMovement;
   public GameObject wallShape;
 
@@ -11,8 +12,14 @@ public class WallMove : MonoBehaviour {
   }
 
   void Update () {
-    var translation = new Vector3(0.0f, 0.0f, speed) * Time.deltaTime;
-    transform.position += translation;
+    if (Input.anyKey) {
+      moving = true;
+    }
+
+    if (moving) {
+      var translation = new Vector3(0.0f, 0.0f, speed) * Time.deltaTime;
+      transform.position += translation;
+    }
 
     if (transform.position.z < -10) {
       ResetWall();
@@ -23,5 +30,6 @@ public class WallMove : MonoBehaviour {
   void ResetWall() {
     wallShape.GetComponent<RandomKeypresses>().Randomize();
     transform.position = new Vector3(transform.position.x, transform.position.y, 28);
+    moving = false;
   }
 }
