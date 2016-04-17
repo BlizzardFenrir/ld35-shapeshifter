@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -3
-  camera: {fileID: 1932316879}
+  cameraMovement: {fileID: 1932316881}
   wallShape: {fileID: 760307510}
 --- !u!114 &70441901
 MonoBehaviour:
@@ -2510,6 +2510,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be07db722b18d0e439dbffebe283e0d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  desiredPosition: {x: 0, y: 0, z: 0}
+  wallPlace: 0
+  dampTime: 0.2
   lookAt: {fileID: 1977813267}
 --- !u!1 &1977813267 stripped
 GameObject:
