@@ -63,7 +63,7 @@ public class RandomKeypresses : TweenKeypresses {
       // Correctly randomized
       // Debug.Log("Good randomization: " + getShapeLetters() );
     }
-    
+
     void Update () {
     }
 
@@ -97,5 +97,13 @@ public class RandomKeypresses : TweenKeypresses {
 
     public void lowerDifficulty() {
       difficulty = Mathf.Clamp(difficulty - 1, 0, 10);
+    }
+
+    void OnEnable() {
+      ResetEvent.OnResetStage += Randomize;
+    }
+
+    void OnDisable() {
+      ResetEvent.OnResetStage -= Randomize;
     }
 }
