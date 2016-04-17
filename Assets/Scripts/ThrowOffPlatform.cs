@@ -3,12 +3,16 @@ using System.Collections;
 
 public class ThrowOffPlatform : MonoBehaviour {
 
+  public float forceScale = 200.0f;
+
   private Vector3 initialPosition;
   private Quaternion initialRotation;
+  private Rigidbody body;
 
 	void Start () {
     initialPosition = transform.position;
     initialRotation = transform.rotation;
+    body = GetComponent<Rigidbody>();
 	}
 
   void OnEnable() {
@@ -22,7 +26,6 @@ public class ThrowOffPlatform : MonoBehaviour {
   }
 
   void OnLoseStage() {
-    var body = GetComponent<Rigidbody>();
     body.isKinematic = false;
     body.useGravity = true;
     body.AddForce(randomForce());
@@ -30,12 +33,15 @@ public class ThrowOffPlatform : MonoBehaviour {
 
   Vector3 randomForce() {
     var force = new Vector3();
-    force.z = -100;
+    force.z = -forceScale;
     return force;
   }
 
   void OnResetStage() {
     transform.position = initialPosition;
     transform.rotation = initialRotation;
+    body.isKinematic = true;
+    body.useGravity = false;
+    body.ResetInertiaTensor();
   }
 }
