@@ -2156,7 +2156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bcc8eabd8ea239429bd9720021dfc69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 3
+  difficulty: 1
   forbiddenCombinations:
   - edj
   - tu

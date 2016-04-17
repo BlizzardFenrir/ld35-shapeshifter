@@ -7,15 +7,23 @@ public class WallMove : MonoBehaviour {
   public KeepLookingAt cameraMovement;
   public GameObject wallShape;
 
+  private float initialSpeed;
+  private float speedIncrease;
+
   void OnEnable() {
     ResetEvent.OnResetStage += ResetWall;
+    WinLoseEvent.OnWinStage += SpeedUpWin;
+    WinLoseEvent.OnLoseStage += SpeedUpLose;
   }
 
   void OnDisable() {
     ResetEvent.OnResetStage -= ResetWall;
+    WinLoseEvent.OnWinStage -= SpeedUpWin;
+    WinLoseEvent.OnLoseStage -= SpeedUpLose;
   }
 
   void Start() {
+    initialSpeed = speed;
     ResetWall();
   }
 
@@ -29,11 +37,23 @@ public class WallMove : MonoBehaviour {
       transform.position += translation;
     }
 
+    speed -= speedIncrease;
+
     cameraMovement.wallPlace = 1 - ((transform.position.z + 10) / 38.0f);
   }
 
   void ResetWall() {
     transform.position = new Vector3(transform.position.x, transform.position.y, 28);
     moving = false;
+    speed = initialSpeed;
+    speedIncrease = 0.0f;
+  }
+
+  void SpeedUpWin() {
+    speedIncrease = 0.2f;
+  }
+
+  void SpeedUpLose() {
+    speedIncrease = 0.1f;
   }
 }
