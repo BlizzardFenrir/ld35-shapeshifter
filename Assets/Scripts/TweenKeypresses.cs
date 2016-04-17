@@ -9,57 +9,78 @@ public class TweenKeypresses : MonoBehaviour {
         public float valueWhenChanged = 0.0f;
     }
 
+    public bool stickyKeys = false;
+
     private Dictionary<char, TweenState> states;
 
     public static char[] keys = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         states = new Dictionary<char, TweenState>();
 
         foreach (char key in keys) {
             states[key] = new TweenState();
         }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-    bool playSfx = false;
-
-    foreach (char key in keys) {
-      var state = states[key];
-
-      if (Input.GetKey(new string(key, 1))) {
-        if (!state.pressed) {
-          state.valueWhenChanged = ScaleFactor(key);
-          state.pressed = true;
-          state.changeTime = Time.time;
-          playSfx = true;
-        }
-      } else {
-        if (state.pressed) {
-          state.valueWhenChanged = ScaleFactor(key);
-          state.pressed = false;
-          state.changeTime = Time.time;
-        }
-      }
     }
 
-    if (playSfx) {
-      GetComponent<AudioSource>().Play();
+    // Update is called once per frame
+    void Update () {
+        bool playSfx = false;
+
+        if (Input.GetKeyDown(KeyCode.Space)) {
+          stickyKeys = !stickyKeys;
+        }
+
+        foreach (char key in keys) {
+            var state = states[key];
+
+            if (stickyKeys) {
+                if (Input.GetKeyDown(new string(key, 1))) {
+                    if (state.pressed) {
+                        state.valueWhenChanged = ScaleFactor(key);
+                        state.pressed = false;
+                        state.changeTime = Time.time;
+                    } else {
+                        state.valueWhenChanged = ScaleFactor(key);
+                        state.pressed = true;
+                        state.changeTime = Time.time;
+                        playSfx = true;
+                    }
+                }
+            } else {
+                if (Input.GetKey(new string(key, 1))) {
+                    if (!state.pressed) {
+                        state.valueWhenChanged = ScaleFactor(key);
+                        state.pressed = true;
+                        state.changeTime = Time.time;
+                        playSfx = true;
+                    }
+                } else {
+                    if (state.pressed) {
+                        state.valueWhenChanged = ScaleFactor(key);
+                        state.pressed = false;
+                        state.changeTime = Time.time;
+                    }
+                }
+            }
+        }
+
+        if (playSfx) {
+            GetComponent<AudioSource>().Play();
+        }
     }
-	}
 
     public virtual List<char> PressedKeys() {
-      List<char> result = new List<char>();
+        List<char> result = new List<char>();
 
-      foreach (var state in states) {
-        if (state.Value.pressed) {
-          result.Add(state.Key);
+        foreach (var state in states) {
+            if (state.Value.pressed) {
+                result.Add(state.Key);
+            }
         }
-      }
 
-      return result;
+        return result;
     }
 
     public virtual float ScaleFactor(char key) {
@@ -77,6 +98,5 @@ public class TweenKeypresses : MonoBehaviour {
             eased = EasingFunctions.EaseOutElastic(deltaTime, 0, 1, animationLength);
             return Mathf.Clamp(state.valueWhenChanged - eased, 0, 1);
         }
-
     }
 }
