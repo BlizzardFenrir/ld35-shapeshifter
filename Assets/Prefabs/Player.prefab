@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fe70003a1f00426eac64da0db501441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceScale: 200
+  forceScale: 400
 --- !u!114 &11457274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -549,7 +549,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: forceScale
-      value: 200
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: panLevelCustomCurve.m_RotationOrder
