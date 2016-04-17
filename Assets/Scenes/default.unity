@@ -317,6 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -3
+  moving: 0
   cameraMovement: {fileID: 1932316881}
   wallShape: {fileID: 760307510}
 --- !u!114 &70441901
@@ -769,6 +770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35632995864bfd94387812ce5694dd83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotating: 1
 --- !u!114 &585131468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1161,7 +1163,7 @@ Transform:
   m_LocalScale: {x: 94.87, y: 26.11, z: 1}
   m_Children: []
   m_Father: {fileID: 2124292371}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!23 &795859357
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1236,7 +1238,7 @@ Transform:
   m_LocalScale: {x: 94.87, y: 26.11, z: 1}
   m_Children: []
   m_Father: {fileID: 2124292371}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!23 &826558601
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1440,7 +1442,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 1, b: 0.783, a: 1}
   m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
@@ -1522,7 +1524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.834, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1722,6 +1724,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1198511131}
   m_RootOrder: 0
+--- !u!1 &1342927301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1342927302}
+  - 108: {fileID: 1342927303}
+  m_Layer: 0
+  m_Name: WaterLightRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1342927302
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1342927301}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5, y: 2.5, z: -16.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2124292371}
+  m_RootOrder: 7
+--- !u!108 &1342927303
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1342927301}
+  m_Enabled: 1
+  serializedVersion: 6
+  m_Type: 2
+  m_Color: {r: 0.641, g: 0.447, b: 1, a: 1}
+  m_Intensity: 1.12
+  m_Range: 50
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_BounceIntensity: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_AreaSize: {x: 1, y: 1}
 --- !u!1 &1456817965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1807,7 +1870,7 @@ GameObject:
   - 4: {fileID: 1474690307}
   - 108: {fileID: 1474690308}
   m_Layer: 0
-  m_Name: Point light
+  m_Name: PlayerLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1820,7 +1883,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1474690306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.356632, y: 7.15, z: -46.37}
+  m_LocalPosition: {x: -9.356632, y: 3.4, z: -39.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2124292371}
@@ -1834,8 +1897,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 5.12
+  m_Color: {r: 0.928, g: 0.878, b: 1, a: 1}
+  m_Intensity: 1.5
   m_Range: 30
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -2152,7 +2215,7 @@ GameObject:
   - 4: {fileID: 1640403303}
   - 108: {fileID: 1640403304}
   m_Layer: 0
-  m_Name: Point light (1)
+  m_Name: WaterLightLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2165,7 +2228,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1640403302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.356632, y: 9.796473, z: -20.09}
+  m_LocalPosition: {x: -25, y: 2.5, z: -16.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2124292371}
@@ -2179,9 +2242,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3.8
-  m_Range: 30
+  m_Color: {r: 0.641, g: 0.447, b: 1, a: 1}
+  m_Intensity: 1.12
+  m_Range: 50
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -2309,6 +2372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35632995864bfd94387812ce5694dd83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotating: 1
 --- !u!114 &1817316536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2516,7 +2580,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be07db722b18d0e439dbffebe283e0d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desiredPosition: {x: 0, y: 0, z: 0}
   wallPlace: 0
   dampTime: 0.2
   lookAt: {fileID: 1977813267}
@@ -2623,6 +2686,7 @@ Transform:
   - {fileID: 1106585918}
   - {fileID: 1474690307}
   - {fileID: 1640403303}
+  - {fileID: 1342927302}
   - {fileID: 826558600}
   - {fileID: 795859356}
   m_Father: {fileID: 0}
