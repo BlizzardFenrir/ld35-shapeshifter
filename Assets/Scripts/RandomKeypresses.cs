@@ -67,7 +67,7 @@ public class RandomKeypresses : TweenKeypresses {
     void Update () {
     }
 
-    public List<char> PressedKeys() {
+    public override List<char> PressedKeys() {
       List<char> result = new List<char>();
 
       foreach (var state in states) {

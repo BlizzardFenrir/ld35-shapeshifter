@@ -43,7 +43,7 @@ public class TweenKeypresses : MonoBehaviour {
         }
 	}
 
-    public List<char> PressedKeys() {
+    public virtual List<char> PressedKeys() {
       List<char> result = new List<char>();
 
       foreach (var state in states) {
