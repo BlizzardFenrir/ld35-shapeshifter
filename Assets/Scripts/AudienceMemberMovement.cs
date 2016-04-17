@@ -21,11 +21,10 @@ public class AudienceMemberMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
     RandomizePosition();
-    transform.position = initialPosition;
 
     transform.position = new Vector3(
-      initialPosition.x,
-      initialPosition.y + (shiftedUp ? shiftAmount : 0.0f),
+      transform.position.x,
+      transform.position.y,
       initialPosition.z + (shiftedRight ? shiftAmount : 0.0f) + (shiftedLeft ? -shiftAmount : 0.0f)
     );
 	}

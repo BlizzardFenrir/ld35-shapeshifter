@@ -4206,10 +4206,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 6599696, guid: 799f893948775c64c8616546fa09f919, type: 2}
-      propertyPath: m_Size.z
-      value: 0.7
-      objectReference: {fileID: 0}
     - target: {fileID: 8226608, guid: 799f893948775c64c8616546fa09f919, type: 2}
       propertyPath: m_PlayOnAwake
       value: 0
