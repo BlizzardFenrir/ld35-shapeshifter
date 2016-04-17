@@ -149,6 +149,9 @@ MonoBehaviour:
   - Name: g
     Key: 103
     Value: {fileID: 100000, guid: 5b0163fa2d04caa42b1bda408f20ae85, type: 3}
+  - Name: h
+    Key: 104
+    Value: {fileID: 100000, guid: 3c54c55b552af67428f0adae4832a149, type: 3}
 --- !u!114 &11472208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -169,7 +172,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: transformMeshes.Array.size
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: transformMeshes.Array.data[8].Key
@@ -389,7 +392,7 @@ Prefab:
       objectReference: {fileID: 100000, guid: 5b0163fa2d04caa42b1bda408f20ae85, type: 3}
     - target: {fileID: 0}
       propertyPath: transformMeshes.Array.data[18].Name
-      value: 
+      value: h
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: transformMeshes.Array.data[18].Key
@@ -398,7 +401,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: transformMeshes.Array.data[18].Value
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 100000, guid: 3c54c55b552af67428f0adae4832a149, type: 3}
     - target: {fileID: 0}
       propertyPath: blinkObject
       value: 
