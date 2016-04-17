@@ -8,26 +8,37 @@ public class AudienceReactions : MonoBehaviour {
   public float maxJumpHeight;
   public float winJumpHeight;
 
-  // private float startingHeight;
   private float nextJumpTime;
 
+  [HideInInspector][System.NonSerialized]
+  private Rigidbody rb;
+
+  void Awake() {
+    rb = GetComponent<Rigidbody>();
+  }
+
   void Start() {
-    // startingHeight = transform.position.y;
-    nextJumpTime = Time.time + Random.Range(minTimeBetweenJumps, maxTimeBetweenJumps);
+    determineNextJumpTime();
   }
 
   // Update is called once per frame
   void Update () {
     if (Time.time > nextJumpTime) {
-      Jump();
+      jump();
+      determineNextJumpTime();
     }
-
-    // if (transform.position.z < startingHeight)
-    //   transform.position = new Vector3(transform.position.x, transform.position.y, startingHeight);
   }
 
-  public void Jump() {
-    float jumpHeight = Random.Range(minJumpHeight, maxJumpHeight);
+  public void determineNextJumpTime() {
+    nextJumpTime = Time.time + Random.Range(minTimeBetweenJumps, maxTimeBetweenJumps);
+  }
 
+  public void jump() {
+    float jumpHeight = Random.Range(minJumpHeight, maxJumpHeight);
+    rb.velocity = new Vector3(0, jumpHeight, 0);
+  }
+
+  public void winJump() {
+    nextJumpTime = Random.Range(0.0f, 1.0f);
   }
 }
