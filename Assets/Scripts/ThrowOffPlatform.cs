@@ -3,13 +3,38 @@ using System.Collections;
 
 public class ThrowOffPlatform : MonoBehaviour {
 
+  private Vector3 initialPosition;
+  private Quaternion initialRotation;
+
 	void Start () {
+    initialPosition = transform.position;
+    initialRotation = transform.rotation;
 	}
-	
-	void Update () {
-	}
+
+  void OnEnable() {
+    ResetEvent.OnResetStage += OnResetStage;
+  }
+
+  void OnDisable() {
+    ResetEvent.OnResetStage -= OnResetStage;
+  }
 
   void OnTriggerEnter(Collider other) {
     Debug.Log("COLLIDE");
+    var body = GetComponent<Rigidbody>();
+    body.isKinematic = false;
+    body.useGravity = true;
+    body.AddForce(randomForce());
+  }
+
+  Vector3 randomForce() {
+    var force = new Vector3();
+    force.z = -100;
+    return force;
+  }
+
+  void OnResetStage() {
+    transform.position = initialPosition;
+    transform.rotation = initialRotation;
   }
 }

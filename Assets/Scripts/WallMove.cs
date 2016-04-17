@@ -7,6 +7,14 @@ public class WallMove : MonoBehaviour {
   public KeepLookingAt cameraMovement;
   public GameObject wallShape;
 
+  void OnEnable() {
+    ResetEvent.OnResetStage += ResetWall;
+  }
+
+  void OnDisable() {
+    ResetEvent.OnResetStage -= ResetWall;
+  }
+
   void Start() {
     ResetWall();
   }
@@ -21,14 +29,10 @@ public class WallMove : MonoBehaviour {
       transform.position += translation;
     }
 
-    if (transform.position.z < -10) {
-      ResetWall();
-    }
     cameraMovement.wallPlace = 1 - ((transform.position.z + 10) / 38.0f);
   }
 
   void ResetWall() {
-    wallShape.GetComponent<RandomKeypresses>().Randomize();
     transform.position = new Vector3(transform.position.x, transform.position.y, 28);
     moving = false;
   }
