@@ -12,17 +12,17 @@ public class CheckCorrectSolution : MonoBehaviour {
   }
 
   void Update() {
-    var correct = false;
-
-    var a = currentKeypresses.PressedKeys().OrderBy(t => t);
-    var b = desiredKeypresses.PressedKeys().OrderBy(t => t);
-
-    if (Enumerable.SequenceEqual(a, b)) {
-      correct = true;
-    }
+    var correct = IsCorrect(currentKeypresses, desiredKeypresses);
 
     foreach (var light in lights) {
       light.state = correct;
     }
+  }
+
+  public static bool IsCorrect(TweenKeypresses current, RandomKeypresses desired) {
+    var a = current.PressedKeys().OrderBy(t => t);
+    var b = desired.PressedKeys().OrderBy(t => t);
+
+    return Enumerable.SequenceEqual(a, b);
   }
 }

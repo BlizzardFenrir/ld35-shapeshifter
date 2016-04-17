@@ -12,15 +12,25 @@ public class ThrowOffPlatform : MonoBehaviour {
 	}
 
   void OnEnable() {
+    WinLoseEvent.OnWinStage += OnWinStage;
+    WinLoseEvent.OnLoseStage += OnLoseStage;
     ResetEvent.OnResetStage += OnResetStage;
   }
 
   void OnDisable() {
+    WinLoseEvent.OnWinStage -= OnWinStage;
+    WinLoseEvent.OnLoseStage -= OnLoseStage;
     ResetEvent.OnResetStage -= OnResetStage;
   }
 
-  void OnTriggerEnter(Collider other) {
-    Debug.Log("COLLIDE");
+  void OnWinStage ()
+  {
+    Debug.Log("WIN");
+  }
+
+  void OnLoseStage() {
+    Debug.Log("LOSE");
+
     var body = GetComponent<Rigidbody>();
     body.isKinematic = false;
     body.useGravity = true;

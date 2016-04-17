@@ -310,6 +310,7 @@ GameObject:
   - 114: {fileID: 70441903}
   - 114: {fileID: 70441900}
   - 114: {fileID: 70441901}
+  - 114: {fileID: 70441904}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -436,6 +437,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cf3df20dfa2440e6886de8c0f4699d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &70441904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 70441895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 268b312f5f91d42b98b7161f81d7194e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1977813267}
+  wall: {fileID: 70441895}
+  current: {fileID: 1977813268}
+  desired: {fileID: 760307512}
 --- !u!1 &103399477
 GameObject:
   m_ObjectHideFlags: 0
@@ -2267,6 +2283,10 @@ Prefab:
     - target: {fileID: 466420, guid: 799f893948775c64c8616546fa09f919, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6599696, guid: 799f893948775c64c8616546fa09f919, type: 2}
+      propertyPath: m_Size.z
+      value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 799f893948775c64c8616546fa09f919, type: 2}

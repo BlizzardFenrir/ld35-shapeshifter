@@ -94,7 +94,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2.000001, z: 0.52}
+  m_Size: {x: 2, y: 2.000001, z: 0.7}
   m_Center: {x: 0, y: 0.9999995, z: -0.19}
 --- !u!95 &9585392
 Animator:
@@ -449,7 +449,7 @@ Prefab:
       objectReference: {fileID: 100000, guid: 769a388e55d88ac4fb881e0904cc34a6, type: 3}
     - target: {fileID: 0}
       propertyPath: m_Size.z
-      value: 0.52
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Center.z
