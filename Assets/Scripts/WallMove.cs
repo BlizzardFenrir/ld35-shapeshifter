@@ -8,6 +8,8 @@ public class WallMove : MonoBehaviour {
   public GameObject wallShape;
 
   private float initialSpeed;
+  private Color initialColor;
+  private float currentAlpha;
   private float speedIncrease;
 
   void OnEnable() {
@@ -24,6 +26,7 @@ public class WallMove : MonoBehaviour {
 
   void Start() {
     initialSpeed = speed;
+    initialColor = GetComponent<Renderer>().material.color;
     ResetWall();
   }
 
@@ -38,8 +41,9 @@ public class WallMove : MonoBehaviour {
     }
 
     speed -= speedIncrease;
-
     cameraMovement.wallPlace = 1 - ((transform.position.z + 10) / 38.0f);
+    currentAlpha = 5.0f - 5.0f*cameraMovement.wallPlace;
+    GetComponent<Renderer>().material.color = new Color(initialColor.r, initialColor.g, initialColor.b, Mathf.Clamp(currentAlpha, 0.0f, 1.0f));
   }
 
   void ResetWall() {
@@ -47,6 +51,8 @@ public class WallMove : MonoBehaviour {
     moving = false;
     speed = initialSpeed;
     speedIncrease = 0.0f;
+    GetComponent<Renderer>().material.color = initialColor;
+    currentAlpha = initialColor.a;
   }
 
   void SpeedUpWin() {
@@ -54,6 +60,6 @@ public class WallMove : MonoBehaviour {
   }
 
   void SpeedUpLose() {
-    speedIncrease = 0.1f;
+    speedIncrease = 0.05f;
   }
 }
