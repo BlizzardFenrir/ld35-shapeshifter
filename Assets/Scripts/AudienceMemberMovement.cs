@@ -5,6 +5,7 @@ public class AudienceMemberMovement : MonoBehaviour {
   public float shiftAmount = 0.2f;
   public double shiftChance = 0.05;
 
+  [System.NonSerialized]
   private System.Random rng;
   private bool shiftedUp = false;
   private bool shiftedLeft = false;
