@@ -17,12 +17,11 @@ public class WallMove : MonoBehaviour {
     if (transform.position.z < -10) {
       ResetWall();
     }
-    cameraMovement.desiredPosition += translation * 0.1f;
+    cameraMovement.wallPlace = 1 - ((transform.position.z + 10) / 38.0f);
   }
 
   void ResetWall() {
     wallShape.GetComponent<RandomKeypresses>().Randomize();
     transform.position = new Vector3(transform.position.x, transform.position.y, 28);
-    cameraMovement.desiredPosition = new Vector3(cameraMovement.desiredPosition.x, cameraMovement.desiredPosition.y, -7.11f);
   }
 }
