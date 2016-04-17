@@ -143,6 +143,12 @@ MonoBehaviour:
   - Name: j
     Key: 106
     Value: {fileID: 100000, guid: 65b264fdedaf54442b38fe55ddec304a, type: 3}
+  - Name: f
+    Key: 102
+    Value: {fileID: 100000, guid: 913d47ee9bf0fcf47a62dba09b4b47f6, type: 3}
+  - Name: g
+    Key: 103
+    Value: {fileID: 100000, guid: 5b0163fa2d04caa42b1bda408f20ae85, type: 3}
 --- !u!114 &11472208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -163,7 +169,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: transformMeshes.Array.size
-      value: 16
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: transformMeshes.Array.data[8].Key
@@ -327,16 +333,16 @@ Prefab:
       objectReference: {fileID: 100000, guid: 65b264fdedaf54442b38fe55ddec304a, type: 3}
     - target: {fileID: 0}
       propertyPath: transformMeshes.Array.data[16].Name
-      value: j
+      value: f
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: transformMeshes.Array.data[16].Key
-      value: 106
+      value: 102
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: transformMeshes.Array.data[16].Value
       value: 
-      objectReference: {fileID: 100000, guid: 5a6600aa11a272f40988228a09a02d0b, type: 3}
+      objectReference: {fileID: 100000, guid: 913d47ee9bf0fcf47a62dba09b4b47f6, type: 3}
     - target: {fileID: 0}
       propertyPath: transformMeshes.Array.data[2].Value
       value: 
@@ -369,6 +375,18 @@ Prefab:
       propertyPath: transformMeshes.Array.data[1].Value
       value: 
       objectReference: {fileID: 100000, guid: 571dbcb44299ae34eb95b40ed5b7534b, type: 3}
+    - target: {fileID: 0}
+      propertyPath: transformMeshes.Array.data[17].Name
+      value: g
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: transformMeshes.Array.data[17].Key
+      value: 103
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: transformMeshes.Array.data[17].Value
+      value: 
+      objectReference: {fileID: 100000, guid: 5b0163fa2d04caa42b1bda408f20ae85, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 175204}
