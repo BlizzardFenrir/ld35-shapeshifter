@@ -1126,6 +1126,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficulty: 3
+  forbiddenCombinations:
+  - edj
+  - tu
+  - sk
+  - yu
+  - ty
 --- !u!1 &795859355
 GameObject:
   m_ObjectHideFlags: 0

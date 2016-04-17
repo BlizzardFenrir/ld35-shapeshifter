@@ -387,6 +387,22 @@ Prefab:
       propertyPath: transformMeshes.Array.data[17].Value
       value: 
       objectReference: {fileID: 100000, guid: 5b0163fa2d04caa42b1bda408f20ae85, type: 3}
+    - target: {fileID: 0}
+      propertyPath: transformMeshes.Array.data[18].Name
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: transformMeshes.Array.data[18].Key
+      value: 104
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: transformMeshes.Array.data[18].Value
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: blinkObject
+      value: 
+      objectReference: {fileID: 100000, guid: 769a388e55d88ac4fb881e0904cc34a6, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 175204}
