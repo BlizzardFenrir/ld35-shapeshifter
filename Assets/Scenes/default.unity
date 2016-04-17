@@ -3344,6 +3344,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 8226608, guid: 799f893948775c64c8616546fa09f919, type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 799f893948775c64c8616546fa09f919, type: 2}
   m_IsPrefabParent: 0

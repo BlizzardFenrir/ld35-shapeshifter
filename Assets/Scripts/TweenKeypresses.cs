@@ -24,23 +24,30 @@ public class TweenKeypresses : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    foreach (char key in keys) {
-            var state = states[key];
+    bool playSfx = false;
 
-            if (Input.GetKey(new string(key, 1))) {
-                if (!state.pressed) {
-                    state.valueWhenChanged = ScaleFactor(key);
-                    state.pressed = true;
-                    state.changeTime = Time.time;
-                }
-            } else {
-                if (state.pressed) {
-                    state.valueWhenChanged = ScaleFactor(key);
-                    state.pressed = false;
-                    state.changeTime = Time.time;
-                }
-            }
+    foreach (char key in keys) {
+      var state = states[key];
+
+      if (Input.GetKey(new string(key, 1))) {
+        if (!state.pressed) {
+          state.valueWhenChanged = ScaleFactor(key);
+          state.pressed = true;
+          state.changeTime = Time.time;
+          playSfx = true;
         }
+      } else {
+        if (state.pressed) {
+          state.valueWhenChanged = ScaleFactor(key);
+          state.pressed = false;
+          state.changeTime = Time.time;
+        }
+      }
+    }
+
+    if (playSfx) {
+      GetComponent<AudioSource>().Play();
+    }
 	}
 
     public virtual List<char> PressedKeys() {
