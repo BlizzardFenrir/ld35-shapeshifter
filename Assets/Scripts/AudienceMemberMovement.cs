@@ -5,8 +5,6 @@ public class AudienceMemberMovement : MonoBehaviour {
   public float shiftAmount = 0.2f;
   public double shiftChance = 0.05;
 
-  [System.NonSerialized]
-  private System.Random rng;
   private bool shiftedUp = false;
   private bool shiftedLeft = false;
   private bool shiftedRight = false;
@@ -14,7 +12,6 @@ public class AudienceMemberMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-    rng = new System.Random();
     initialPosition = transform.position;
 	}
 	
@@ -30,13 +27,13 @@ public class AudienceMemberMovement : MonoBehaviour {
 	}
 
   void RandomizePosition() {
-    if (rng.NextDouble() < shiftChance) { 
+    if (Random.value < shiftChance) { 
       shiftedUp = !shiftedUp;
     }
-    if (2*rng.NextDouble() < shiftChance) { 
+    if (2*Random.value < shiftChance) { 
       shiftedLeft = !shiftedLeft;
     }
-    if (2*rng.NextDouble() < shiftChance) { 
+    if (2*Random.value < shiftChance) { 
       shiftedRight = !shiftedRight;
     }
   }
