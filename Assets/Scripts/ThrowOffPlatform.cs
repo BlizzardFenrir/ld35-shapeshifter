@@ -9,7 +9,7 @@ public class ThrowOffPlatform : MonoBehaviour {
 	void Update () {
 	}
 
-  void OnCollisionEnter(Collision collision) {
+  void OnTriggerEnter(Collider other) {
     Debug.Log("COLLIDE");
   }
 }
