@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449bd24cb8211604a95d2cd0b5ae96be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTimeBetweenJumps: 2
-  maxTimeBetweenJumps: 15
+  minTimeBetweenJumps: 10
+  maxTimeBetweenJumps: 30
   minJumpHeight: 3
   maxJumpHeight: 6
   winJumpHeight: 10
@@ -162,11 +162,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: minTimeBetweenJumps
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxTimeBetweenJumps
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: minJumpHeight
