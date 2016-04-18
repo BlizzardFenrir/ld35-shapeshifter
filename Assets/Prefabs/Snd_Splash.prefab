@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 463052}
   - 82: {fileID: 8283750}
+  - 114: {fileID: 11476816}
   m_Layer: 0
   m_Name: Snd_Splash
   m_TagString: Untagged
@@ -38,8 +39,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fdbc24065f6554426812ebf7cde2fe62, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.42
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -102,6 +103,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &11476816
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 968429f6ac5827f4e833ff0f5a85dcd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeOffset: 0.15
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -123,6 +136,18 @@ Prefab:
       objectReference: {fileID: 8300000, guid: fdbc24065f6554426812ebf7cde2fe62, type: 3}
     - target: {fileID: 0}
       propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Volume
+      value: 0.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: timeOffset
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -5983,7 +5983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
+  m_sendNavigationEvents: 0
   m_DragThreshold: 5
 --- !u!4 &1268541217
 Transform:
@@ -7682,6 +7682,20 @@ Prefab:
     - target: {fileID: 11486838, guid: 799f893948775c64c8616546fa09f919, type: 2}
       propertyPath: scaleFactor
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 11486838, guid: 799f893948775c64c8616546fa09f919, type: 2}
+      propertyPath: splashSound
+      value: 
+      objectReference: {fileID: 11476816, guid: 2fd2502a43cc82640998002eea64d003,
+        type: 2}
+    - target: {fileID: 11486838, guid: 799f893948775c64c8616546fa09f919, type: 2}
+      propertyPath: splashParticles
+      value: 
+      objectReference: {fileID: 19850612, guid: b5826124a575982439660c7d56686093,
+        type: 2}
+    - target: {fileID: 11486838, guid: 799f893948775c64c8616546fa09f919, type: 2}
+      propertyPath: waterOffset
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 799f893948775c64c8616546fa09f919, type: 2}

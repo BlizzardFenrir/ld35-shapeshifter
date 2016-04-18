@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class PlaySound : MonoBehaviour {
+  public float timeOffset = 0.0f;
   private AudioSource asource;
   private bool startedPlaying = false;
 
@@ -11,6 +12,7 @@ public class PlaySound : MonoBehaviour {
   }
 
   void Start() {
+    asource.time = timeOffset;
     asource.Play();
     startedPlaying = true;
   }

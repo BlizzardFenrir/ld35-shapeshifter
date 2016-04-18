@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameManager : MonoBehaviour {
+public class MainGameManager : MonoBehaviour {
   public GameObject mainMenu;
   public WallMove wall;
   public RandomKeypresses wallShape;
