@@ -3,27 +3,30 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class UIGameOverText : MonoBehaviour {
+  public float gameOverMessageDuration = 3.0f;
   public MainGameManager gm;
   private Text textComponent;
   private Outline outlineComponent;
-  private Color initialTextColor;
-  private Color initialOutlineColor;
+  public Color initialTextColor;
+  public Color initialOutlineColor;
   private float alpha;
 
   // Use this for initialization
   void Awake () {
     textComponent = GetComponent<Text>();
     outlineComponent = GetComponent<Outline>();
+
+    initialTextColor = textComponent.color;
+    initialOutlineColor = outlineComponent.effectColor;
   }
 
   void Start() {
-    initialTextColor = textComponent.color;
-    initialOutlineColor = outlineComponent.effectColor;
+    alpha = gameOverMessageDuration;
   }
   
   // Update is called once per frame
   void Update () {
-    alpha = Mathf.Max(alpha - 1.0f * Time.deltaTime, 0.0f);
+    alpha = Mathf.Max(alpha - 0.5f * Time.deltaTime, 0.0f);
     textComponent.color = new Color(initialTextColor.r,
                                     initialTextColor.g,
                                     initialTextColor.b,
@@ -35,11 +38,12 @@ public class UIGameOverText : MonoBehaviour {
 
     if (alpha <= 0) {
       gm.BackToMainMenu();
+      HideGameOverMessage();
     }
   }
 
   public void ShowGameOverMessage() {
-    alpha = 5.0f;
+    alpha = gameOverMessageDuration;
     gameObject.SetActive(true);
     textComponent.color = initialTextColor;
     outlineComponent.effectColor = initialOutlineColor;

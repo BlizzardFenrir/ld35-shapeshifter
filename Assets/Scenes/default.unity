@@ -6383,6 +6383,7 @@ MonoBehaviour:
   scoreManager: {fileID: 1401385400}
   gameOverText: {fileID: 1439565715}
   wall: {fileID: 70441900}
+  player: {fileID: 1977813267}
   wallShape: {fileID: 760307512}
 --- !u!4 &1312438088
 Transform:
@@ -7526,7 +7527,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2436dd522d0044c8b867517368dc3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverMessageDuration: 3
   gm: {fileID: 1312438087}
+  initialTextColor: {r: 0, g: 0, b: 0, a: 0}
+  initialOutlineColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1439565716
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -32,7 +32,7 @@ public class ScoreManager : MonoBehaviour {
   void Start () {
     score = 0;
     highscore = 0;
-    attemptsLeft = 0;
+    attemptsLeft = 5;
     baseDifficulty = 0;
     maxDifficulty = difficultyThresholds.Count;
   }
@@ -56,18 +56,21 @@ public class ScoreManager : MonoBehaviour {
     score = 0;
   }
 
+  public void ResetAttempts() {
+    attemptsLeft = 5;
+  }
+
   public void LoseAttempt() {
     attemptsLeft -= 1;
     if (attemptsLeft <= 0) {
       if (OnNoAttemptsLeft != null) {
-        Debug.Log("No attempts left.");
         OnNoAttemptsLeft();
       }
     }
   }
 
   public void WinPoint() {
-    attemptsLeft = 5;
+    ResetAttempts();
     score += 1;
     highscore = Mathf.Max(score, highscore);
     RecalculateDifficulty();

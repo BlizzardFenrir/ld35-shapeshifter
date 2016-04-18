@@ -7,6 +7,7 @@ public class MainGameManager : MonoBehaviour {
   public ScoreManager scoreManager;
   public UIGameOverText gameOverText;
   public WallMove wall;
+  public GameObject player;
   public RandomKeypresses wallShape;
 
   private bool onMainMenu;
@@ -18,11 +19,11 @@ public class MainGameManager : MonoBehaviour {
     gameUI.SetActive(false);
   }
 
-  void Enable() {
+  void OnEnable() {
     ScoreManager.OnNoAttemptsLeft += GameOver;
   }
 
-  void Disable() {
+  void OnDisable() {
     ScoreManager.OnNoAttemptsLeft -= GameOver;
   }
 
@@ -43,17 +44,16 @@ public class MainGameManager : MonoBehaviour {
   }
 
   public void GameOver() {
-    Debug.Log("GameOver");
-    wall.ResetWall();
-    scoreManager.ResetScore();
     wall.paused = true;
 
     gameOverText.ShowGameOverMessage();
   }
 
   public void BackToMainMenu() {
+    player.GetComponent<ThrowOffPlatform>().OnResetStage();
     wall.ResetWall();
     scoreManager.ResetScore();
+    scoreManager.ResetAttempts();
 
     wall.paused = true;
     mainMenuUI.SetActive(true);
@@ -62,8 +62,11 @@ public class MainGameManager : MonoBehaviour {
   }
 
   public void StartPlaying() {
+    player.GetComponent<ThrowOffPlatform>().OnResetStage();
     wall.ResetWall();
     wallShape.Randomize();
+    scoreManager.ResetScore();
+    scoreManager.ResetAttempts();
 
     wall.paused = false;
     mainMenuUI.SetActive(false);
@@ -72,7 +75,6 @@ public class MainGameManager : MonoBehaviour {
   }
 
   public void QuitGame() {
-    Debug.Log("Quit game");
     Application.Quit();
   }
 }

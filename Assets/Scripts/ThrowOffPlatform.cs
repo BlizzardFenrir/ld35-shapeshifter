@@ -40,7 +40,7 @@ public class ThrowOffPlatform : MonoBehaviour {
     return force;
   }
 
-  void OnResetStage() {
+  public void OnResetStage() {
     transform.position = initialPosition;
     transform.rotation = initialRotation;
     body.isKinematic = true;
