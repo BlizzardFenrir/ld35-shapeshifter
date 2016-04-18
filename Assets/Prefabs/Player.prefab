@@ -17,6 +17,7 @@ GameObject:
   - 54: {fileID: 5463676}
   - 114: {fileID: 11428114}
   - 82: {fileID: 8226608}
+  - 114: {fileID: 11486838}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -280,6 +281,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39138845c144ad46b4d0788d9e6a52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stickyKeys: 0
+--- !u!114 &11486838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c8182cd5cb25794888f7f94e4c04581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  water: {fileID: 0}
+  scaleFactor: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

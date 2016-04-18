@@ -3,6 +3,7 @@ using System.Collections;
 
 public class WallMove : MonoBehaviour {
   public float speed;
+  public bool paused = false;
   public bool moving = false;
   public KeepLookingAt cameraMovement;
   public GameObject wallShape;
@@ -31,7 +32,7 @@ public class WallMove : MonoBehaviour {
   }
 
   void Update () {
-    if (Input.anyKey) {
+    if ( !paused && CheckIfShouldStartMoving() ) {
       moving = true;
     }
 
@@ -61,5 +62,16 @@ public class WallMove : MonoBehaviour {
 
   void SpeedUpLose() {
     speedIncrease = 0.05f;
+  }
+
+  private bool CheckIfShouldStartMoving() {
+    foreach (char c in TweenKeypresses.keys) {
+      // Use getkeydown so that only NEW presses this frame count for starting,
+      // not keys that are still held down from last wave.
+      if ( Input.GetKeyDown(new string(c, 1)) ) {
+        return true;
+      }
+    }
+    return false;
   }
 }
