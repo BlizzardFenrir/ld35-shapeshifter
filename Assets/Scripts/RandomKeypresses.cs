@@ -31,13 +31,10 @@ public class RandomKeypresses : TweenKeypresses {
       int randomizationAttempts = 3;
 
       while (randomizationAttempts > 0) {
-        // Reset
-        List<char> keys = new List<char>(states.Keys);
-        foreach (char key in keys) {
-          states[key] = false;
-        }
+        ResetKeystates();
 
         // Randomize
+        List<char> keys = new List<char>(states.Keys);
         List<char> pressedKeys = keys.OrderBy(c => rand.Next()).Take(difficulty).ToList();
         foreach (char k in pressedKeys) {
           states[k] = true;
@@ -62,6 +59,13 @@ public class RandomKeypresses : TweenKeypresses {
 
       // Correctly randomized
       // Debug.Log("Good randomization: " + getShapeLetters() );
+    }
+
+    public void ResetKeystates() {
+      List<char> keys = new List<char>(states.Keys);
+      foreach (char key in keys) {
+        states[key] = false;
+      }
     }
 
     void Update () {

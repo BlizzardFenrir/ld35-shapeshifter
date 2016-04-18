@@ -47,7 +47,7 @@ public class WallMove : MonoBehaviour {
     GetComponent<Renderer>().material.color = new Color(initialColor.r, initialColor.g, initialColor.b, Mathf.Clamp(currentAlpha, 0.0f, 1.0f));
   }
 
-  void ResetWall() {
+  public void ResetWall() {
     transform.position = new Vector3(transform.position.x, transform.position.y, 28);
     moving = false;
     speed = initialSpeed;
