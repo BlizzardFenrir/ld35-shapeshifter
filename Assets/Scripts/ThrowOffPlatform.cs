@@ -5,6 +5,8 @@ public class ThrowOffPlatform : MonoBehaviour {
 
   public float forceScale = 200.0f;
 
+  public PlaySound throwSound;
+
   private Vector3 initialPosition;
   private Quaternion initialRotation;
   private Rigidbody body;
@@ -29,6 +31,7 @@ public class ThrowOffPlatform : MonoBehaviour {
     body.isKinematic = false;
     body.useGravity = true;
     body.AddForce(randomForce());
+    Instantiate(throwSound, transform.position, Quaternion.identity);
   }
 
   Vector3 randomForce() {
