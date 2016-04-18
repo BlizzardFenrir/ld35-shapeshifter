@@ -2,10 +2,9 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class UIKeyChangeColor : MonoBehaviour {
+public class UIStickyHighlight : MonoBehaviour {
   public Color heldColor;
   public Color releasedColor;
-  public string key;
   public TweenKeypresses keypresses;
 
   private Image img;
@@ -16,7 +15,7 @@ public class UIKeyChangeColor : MonoBehaviour {
   
   // Update is called once per frame
   void Update () {
-    if (keypresses.GetKey(key[0])) {
+    if (keypresses.stickyKeys) {
       img.color = heldColor;
     } else {
       img.color = releasedColor;

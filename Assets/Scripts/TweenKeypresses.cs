@@ -84,6 +84,11 @@ public class TweenKeypresses : MonoBehaviour {
         return result;
     }
 
+    public virtual bool GetKey(char key) {
+        TweenState state = states[key];
+        return state.pressed;
+    }
+
     public virtual float ScaleFactor(char key) {
         TweenState state = states[key];
         float deltaTime = Time.time - state.changeTime;

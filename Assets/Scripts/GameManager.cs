@@ -16,10 +16,14 @@ public class GameManager : MonoBehaviour {
   void Update () {
     if (Input.GetKeyDown(KeyCode.Escape)) {
       if (onMainMenu) {
-        Application.Quit();
+        QuitGame();
       } else {
         BackToMainMenu();
       }
+    }
+
+    if (onMainMenu && Input.GetKeyDown(KeyCode.Return)) {
+      StartPlaying();
     }
   }
 
@@ -38,5 +42,10 @@ public class GameManager : MonoBehaviour {
     wall.paused = false;
     mainMenu.SetActive(false);
     onMainMenu = false;
+  }
+
+  public void QuitGame() {
+    Debug.Log("Quit game");
+    Application.Quit();
   }
 }
