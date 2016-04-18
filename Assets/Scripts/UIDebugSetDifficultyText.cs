@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class UISetDifficultyText : MonoBehaviour {
+public class UIDebugSetDifficultyText : MonoBehaviour {
   public RandomKeypresses rk;
 
   [HideInInspector][System.NonSerialized]
@@ -13,6 +13,6 @@ public class UISetDifficultyText : MonoBehaviour {
   }
 
   void Update () {
-    if (rk != null && t != null) t.text = "Difficulty: " + rk.difficulty;
+    if (rk != null && t != null) t.text = "Base difficulty: " + rk.difficulty;
   }
 }

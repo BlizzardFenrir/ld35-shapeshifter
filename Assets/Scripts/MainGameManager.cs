@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class MainGameManager : MonoBehaviour {
-  public GameObject mainMenu;
+  public GameObject mainMenuUI;
+  public GameObject gameUI;
   public WallMove wall;
   public RandomKeypresses wallShape;
 
@@ -10,6 +11,8 @@ public class MainGameManager : MonoBehaviour {
   
   void Start() {
     onMainMenu = true;
+    mainMenuUI.SetActive(true);
+    gameUI.SetActive(false);
   }
 
   // Update is called once per frame
@@ -31,7 +34,8 @@ public class MainGameManager : MonoBehaviour {
     wall.ResetWall();
 
     wall.paused = true;
-    mainMenu.SetActive(true);
+    mainMenuUI.SetActive(true);
+    gameUI.SetActive(false);
     onMainMenu = true;
   }
 
@@ -40,7 +44,8 @@ public class MainGameManager : MonoBehaviour {
     wallShape.Randomize();
 
     wall.paused = false;
-    mainMenu.SetActive(false);
+    mainMenuUI.SetActive(false);
+    gameUI.SetActive(true);
     onMainMenu = false;
   }
 
