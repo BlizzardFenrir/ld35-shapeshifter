@@ -4,6 +4,7 @@ using System.Collections;
 public class MainGameManager : MonoBehaviour {
   public GameObject mainMenuUI;
   public GameObject gameUI;
+  public ScoreManager scoreManager;
   public WallMove wall;
   public RandomKeypresses wallShape;
 
@@ -32,6 +33,7 @@ public class MainGameManager : MonoBehaviour {
 
   public void BackToMainMenu() {
     wall.ResetWall();
+    scoreManager.ResetScore();
 
     wall.paused = true;
     mainMenuUI.SetActive(true);

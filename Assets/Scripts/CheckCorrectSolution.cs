@@ -8,12 +8,23 @@ public class CheckCorrectSolution : MonoBehaviour {
   public RandomKeypresses desiredKeypresses;
   public List<ChangeLightColor> lights;
 
+  public PlaySound correctSound;
+  private bool wasCorrect;
+
   void Start() {
+    wasCorrect = false;
   }
 
   void Update() {
     var correct = IsCorrect(currentKeypresses, desiredKeypresses);
 
+    // Play sound when player shapes becomes correct
+    if (wasCorrect != correct && correct) {
+      Instantiate(correctSound, transform.position, Quaternion.identity);
+    }
+    wasCorrect = correct;
+
+    // Change light state if player shape is correct
     foreach (var light in lights) {
       light.state = correct;
     }
