@@ -5,15 +5,25 @@ public class MainGameManager : MonoBehaviour {
   public GameObject mainMenuUI;
   public GameObject gameUI;
   public ScoreManager scoreManager;
+  public UIGameOverText gameOverText;
   public WallMove wall;
   public RandomKeypresses wallShape;
 
   private bool onMainMenu;
+  private bool gameOver;
   
   void Start() {
     onMainMenu = true;
     mainMenuUI.SetActive(true);
     gameUI.SetActive(false);
+  }
+
+  void Enable() {
+    ScoreManager.OnNoAttemptsLeft += GameOver;
+  }
+
+  void Disable() {
+    ScoreManager.OnNoAttemptsLeft -= GameOver;
   }
 
   // Update is called once per frame
@@ -23,12 +33,22 @@ public class MainGameManager : MonoBehaviour {
         QuitGame();
       } else {
         BackToMainMenu();
+        gameOverText.HideGameOverMessage();
       }
     }
 
     if (onMainMenu && Input.GetKeyDown(KeyCode.Return)) {
       StartPlaying();
     }
+  }
+
+  public void GameOver() {
+    Debug.Log("GameOver");
+    wall.ResetWall();
+    scoreManager.ResetScore();
+    wall.paused = true;
+
+    gameOverText.ShowGameOverMessage();
   }
 
   public void BackToMainMenu() {

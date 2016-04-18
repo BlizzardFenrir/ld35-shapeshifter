@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class UIScoreCounter : MonoBehaviour {
+public class UIHighScoreCounter : MonoBehaviour {
 
   public ScoreManager scoreManager;
   private Text textComponent;
@@ -14,6 +14,6 @@ public class UIScoreCounter : MonoBehaviour {
   
   // Update is called once per frame
   void Update () {
-    textComponent.text = "Score\n" + scoreManager.score;
+    textComponent.text = "High Score\n" + scoreManager.highscore;
   }
 }
