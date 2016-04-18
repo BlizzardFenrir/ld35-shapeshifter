@@ -17,3 +17,8 @@ http://soundbible.com/2100-Splash-Rock-In-Lake.html
 Banana Peel Slip Zip
 License: Attribution 3.0 | Recorded by Mike Koenig
 http://soundbible.com/1299-Banana-Peel-Slip-Zip.html
+
+"Fun in a Bottle", "Pixelland"
+Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 3.0
+http://creativecommons.org/licenses/by/3.0/
